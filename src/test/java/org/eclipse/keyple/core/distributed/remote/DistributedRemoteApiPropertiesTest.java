@@ -32,6 +32,6 @@ public class DistributedRemoteApiPropertiesTest {
     }
     String libVersion = properties.getProperty("version");
     assertThat(DistributedRemoteApiProperties.VERSION).isEqualTo(libVersion);
-    // assertThat(DistributedRemoteApiProperties.VERSION).matches("\\d+\\.\\d+");
+    assertThat(DistributedRemoteApiProperties.VERSION).matches("\\d+\\.\\d+");
   }
 }
