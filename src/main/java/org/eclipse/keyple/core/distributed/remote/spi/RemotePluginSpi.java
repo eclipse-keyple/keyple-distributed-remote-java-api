@@ -11,7 +11,7 @@
  ************************************************************************************** */
 package org.eclipse.keyple.core.distributed.remote.spi;
 
-import org.eclipse.keyple.core.distributed.remote.RemotePluginManager;
+import org.eclipse.keyple.core.distributed.remote.RemotePluginApi;
 
 /**
  * Distributed remote plugin extension able to communicate with a distributed local service
@@ -22,12 +22,12 @@ import org.eclipse.keyple.core.distributed.remote.RemotePluginManager;
 public interface RemotePluginSpi {
 
   /**
-   * Binds the associated Keyple Core {@link RemotePluginManager} manager.
+   * Connects the associated Keyple Core {@link RemotePluginApi} API.
    *
-   * @param manager The manager.
+   * @param remotePluginApi The API to connect.
    * @since 2.0
    */
-  void setManager(RemotePluginManager manager);
+  void connect(RemotePluginApi remotePluginApi);
 
   /**
    * Gets the name of the distributed remote plugin extension.

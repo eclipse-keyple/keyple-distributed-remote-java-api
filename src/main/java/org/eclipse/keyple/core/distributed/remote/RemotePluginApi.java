@@ -12,12 +12,12 @@
 package org.eclipse.keyple.core.distributed.remote;
 
 /**
- * Manager associated to a not observable {@link
+ * API associated to a not observable {@link
  * org.eclipse.keyple.core.distributed.remote.spi.RemotePluginSpi}.
  *
  * @since 2.0
  */
-public interface RemotePluginManager {
+public interface RemotePluginApi {
 
   /**
    * Must be invoked when a message containing a reader event is received from the distributed local

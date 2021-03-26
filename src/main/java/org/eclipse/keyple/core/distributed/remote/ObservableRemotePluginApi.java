@@ -14,12 +14,12 @@ package org.eclipse.keyple.core.distributed.remote;
 import org.eclipse.keyple.core.distributed.remote.spi.RemoteReaderSpi;
 
 /**
- * Manager associated to an observable {@link
+ * API associated to an observable {@link
  * org.eclipse.keyple.core.distributed.remote.spi.RemotePluginSpi}.
  *
  * @since 2.0
  */
-public interface ObservableRemotePluginManager extends RemotePluginManager {
+public interface ObservableRemotePluginApi extends RemotePluginApi {
 
   /**
    * Registers a {@link RemoteReaderSpi} as a master remote reader and notifies all plugin's
