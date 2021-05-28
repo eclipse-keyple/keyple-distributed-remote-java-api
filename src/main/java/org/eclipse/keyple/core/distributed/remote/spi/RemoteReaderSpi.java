@@ -37,28 +37,4 @@ public interface RemoteReaderSpi {
    * @since 2.0
    */
   String executeRemotely(String jsonData);
-
-  /**
-   * Indicates if the remote reader is observable or not.
-   *
-   * @return true if it is observable.
-   * @since 2.0
-   */
-  boolean isObservable();
-
-  /**
-   * Starts on the associated distributed local service the observation of the associated local
-   * reader.
-   *
-   * @since 2.0
-   */
-  void startReaderObservation();
-
-  /**
-   * Tries to stops on the associated distributed local service the observation of the associated
-   * local reader.
-   *
-   * @since 2.0
-   */
-  void stopReaderObservation();
 }

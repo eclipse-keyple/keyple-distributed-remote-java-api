@@ -12,41 +12,28 @@
 package org.eclipse.keyple.core.distributed.remote.spi;
 
 /**
- * Factory of {@link RemotePluginSpi}.
+ * Abstract API extended by all types of distributed remote plugin extensions able to communicate
+ * with a distributed local service extension.
  *
  * @since 2.0
  */
-public interface RemotePluginFactorySpi {
+public interface AbstractRemotePluginSpi {
 
   /**
-   * Gets the distributed remote's API version used at compile time.
+   * Gets the name of the distributed remote plugin extension.
    *
    * @return A not empty string.
    * @since 2.0
    */
-  String getDistributedRemoteApiVersion();
+  String getName();
 
   /**
-   * Gets the commons's API version used at compile time.
+   * Forwards the provided JSON data to the associated distributed local service.
    *
-   * @return A not empty string.
+   * @param jsonData A JSON string containing the data to transmit.
+   * @return A JSON string containing the response received from the distributed local service. It
+   *     can be empty if the command returns nothing.
    * @since 2.0
    */
-  String getCommonsApiVersion();
-
-  /**
-   * Retrieves the name of the distributed remote plugin that will be instantiated by this factory.
-   *
-   * @return A not empty string.
-   * @since 2.0
-   */
-  String getRemotePluginName();
-
-  /**
-   * Retrieves an instance of a distributed remote plugin SPI (can be a singleton or not).
-   *
-   * @return A not null reference.
-   * @since 2.0
-   */
-  AbstractRemotePluginSpi getRemotePlugin();
+  String executeRemotely(String jsonData);
 }

@@ -19,7 +19,7 @@ import org.eclipse.keyple.core.distributed.remote.RemotePluginApi;
  *
  * @since 2.0
  */
-public interface RemotePluginSpi {
+public interface RemotePluginSpi extends AbstractRemotePluginSpi {
 
   /**
    * Connects the associated Keyple Core {@link RemotePluginApi} API.
@@ -30,54 +30,22 @@ public interface RemotePluginSpi {
   void connect(RemotePluginApi remotePluginApi);
 
   /**
-   * Gets the name of the distributed remote plugin extension.
-   *
-   * @return A not empty string.
-   * @since 2.0
-   */
-  String getName();
-
-  /**
-   * Forwards the provided JSON data to the associated distributed local service.
-   *
-   * @param jsonData A JSON string containing the data to transmit.
-   * @return A JSON string containing the response received from the distributed local service. It
-   *     can be empty if the command returns nothing.
-   * @since 2.0
-   */
-  String executeRemotely(String jsonData);
-
-  /**
    * Creates a {@link RemoteReaderSpi} associated to the local reader having the provided name.
    *
    * @param localReaderName The name of the associated local reader.
-   * @param isObservable true if the local reader is observable.
    * @return A new instance.
    * @since 2.0
    */
-  RemoteReaderSpi createRemoteReader(String localReaderName, boolean isObservable);
+  RemoteReaderSpi createRemoteReader(String localReaderName);
 
   /**
-   * Indicates if the remote plugin is observable or not.
+   * Creates a {@link ObservableRemoteReaderSpi} associated to the local reader having the provided
+   * name.
    *
-   * @return true if it is observable.
+   * @param localReaderName The name of the associated local observable reader.
+   * @return A new instance.
+   * @throws IllegalStateException If the reader observation strategy is not configured.
    * @since 2.0
    */
-  boolean isObservable();
-
-  /**
-   * Starts on the associated distributed local service the observation of all observable local
-   * plugins.
-   *
-   * @since 2.0
-   */
-  void startPluginsObservation();
-
-  /**
-   * Tries to stops on the associated distributed local service the observation of all observable
-   * local plugins.
-   *
-   * @since 2.0
-   */
-  void stopPluginsObservation();
+  ObservableRemoteReaderSpi createObservableRemoteReader(String localReaderName);
 }
