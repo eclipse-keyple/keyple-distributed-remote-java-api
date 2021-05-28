@@ -11,42 +11,37 @@
  ************************************************************************************** */
 package org.eclipse.keyple.core.distributed.remote.spi;
 
+import org.eclipse.keyple.core.distributed.remote.ObservableRemotePluginApi;
+
 /**
- * Factory of {@link RemotePluginSpi}.
+ * Distributed observable remote plugin extension able to communicate with a distributed local
+ * service extension.
  *
  * @since 2.0
  */
-public interface RemotePluginFactorySpi {
+public interface ObservableRemotePluginSpi extends RemotePluginSpi {
 
   /**
-   * Gets the distributed remote's API version used at compile time.
+   * Connects the associated Keyple Core {@link ObservableRemotePluginApi} API.
    *
-   * @return A not empty string.
+   * @param observableRemotePluginApi The API to connect.
    * @since 2.0
    */
-  String getDistributedRemoteApiVersion();
+  void connect(ObservableRemotePluginApi observableRemotePluginApi);
 
   /**
-   * Gets the commons's API version used at compile time.
+   * Invoked when the associated distributed local service <b>starts</b> the observation of all
+   * observable local plugins.
    *
-   * @return A not empty string.
    * @since 2.0
    */
-  String getCommonsApiVersion();
+  void onStartObservation();
 
   /**
-   * Retrieves the name of the distributed remote plugin that will be instantiated by this factory.
+   * Invoked when the associated distributed local service <b>stops</b> the observation of all
+   * observable local plugins.
    *
-   * @return A not empty string.
    * @since 2.0
    */
-  String getRemotePluginName();
-
-  /**
-   * Retrieves an instance of a distributed remote plugin SPI (can be a singleton or not).
-   *
-   * @return A not null reference.
-   * @since 2.0
-   */
-  AbstractRemotePluginSpi getRemotePlugin();
+  void onStopObservation();
 }

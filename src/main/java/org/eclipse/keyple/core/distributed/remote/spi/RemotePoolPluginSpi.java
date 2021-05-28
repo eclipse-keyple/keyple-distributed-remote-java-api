@@ -9,23 +9,22 @@
  *
  * SPDX-License-Identifier: EPL-2.0
  ************************************************************************************** */
-package org.eclipse.keyple.core.distributed.remote;
+package org.eclipse.keyple.core.distributed.remote.spi;
 
 /**
- * API associated to a {@link org.eclipse.keyple.core.distributed.remote.spi.RemotePluginSpi}.
+ * Distributed remote pool plugin extension able to communicate with a distributed local service
+ * extension.
  *
  * @since 2.0
  */
-public interface RemotePluginApi {
+public interface RemotePoolPluginSpi extends AbstractRemotePluginSpi {
 
   /**
-   * Must be invoked when a message containing a reader event is received from the distributed local
-   * service in order to be forward to the associated observable remote reader.
+   * Creates a {@link RemoteReaderSpi} associated to the local reader having the provided name.
    *
-   * @param jsonData A JSON string containing the reader event.
-   * @throws IllegalArgumentException If the JSON data is null, empty or malformed.
-   * @throws IllegalStateException If there is no associated observable remote reader registered.
+   * @param localReaderName The name of the associated local reader.
+   * @return A new instance.
    * @since 2.0
    */
-  void onReaderEvent(String jsonData);
+  RemoteReaderSpi createRemoteReader(String localReaderName);
 }
