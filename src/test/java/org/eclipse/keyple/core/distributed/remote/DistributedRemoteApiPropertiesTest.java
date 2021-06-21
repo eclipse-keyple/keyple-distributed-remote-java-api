@@ -38,6 +38,7 @@ public class DistributedRemoteApiPropertiesTest {
   @Test
   public void versionIsCorrectlyWritten() {
     String apiVersion = DistributedRemoteApiProperties.VERSION;
-    assertThat(apiVersion).isEqualTo(libVersion).matches("\\d+\\.\\d+");
+    assertThat(apiVersion).matches("\\d+\\.\\d+");
+    assertThat(libVersion).startsWith(apiVersion);
   }
 }
