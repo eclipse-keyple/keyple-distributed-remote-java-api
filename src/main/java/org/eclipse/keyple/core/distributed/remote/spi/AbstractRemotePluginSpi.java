@@ -36,4 +36,11 @@ public interface AbstractRemotePluginSpi {
    * @since 2.0
    */
   String executeRemotely(String jsonData);
+
+  /**
+   * Invoked when unregistering the plugin.
+   *
+   * @since 2.0
+   */
+  void onUnregister();
 }
