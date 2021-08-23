@@ -32,20 +32,23 @@ public interface RemotePluginSpi extends AbstractRemotePluginSpi {
   /**
    * Creates a {@link RemoteReaderSpi} associated to the local reader having the provided name.
    *
-   * @param localReaderName The name of the associated local reader.
+   * @param remoteReaderName The remote name of the associated local reader.
+   * @param localReaderName The original name of the associated local reader.
    * @return A new instance.
    * @since 2.0
    */
-  RemoteReaderSpi createRemoteReader(String localReaderName);
+  RemoteReaderSpi createRemoteReader(String remoteReaderName, String localReaderName);
 
   /**
    * Creates a {@link ObservableRemoteReaderSpi} associated to the local reader having the provided
    * name.
    *
-   * @param localReaderName The name of the associated local observable reader.
+   * @param remoteReaderName The remote name of the associated local reader.
+   * @param localReaderName The original name of the associated local observable reader.
    * @return A new instance.
    * @throws IllegalStateException If the reader observation strategy is not configured.
    * @since 2.0
    */
-  ObservableRemoteReaderSpi createObservableRemoteReader(String localReaderName);
+  ObservableRemoteReaderSpi createObservableRemoteReader(
+      String remoteReaderName, String localReaderName);
 }

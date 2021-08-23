@@ -22,9 +22,10 @@ public interface RemotePoolPluginSpi extends AbstractRemotePluginSpi {
   /**
    * Creates a {@link RemoteReaderSpi} associated to the local reader having the provided name.
    *
-   * @param localReaderName The name of the associated local reader.
+   * @param remoteReaderName The remote name of the associated local reader.
+   * @param localReaderName The original name of the associated local reader.
    * @return A new instance.
    * @since 2.0
    */
-  RemoteReaderSpi createRemoteReader(String localReaderName);
+  RemoteReaderSpi createRemoteReader(String remoteReaderName, String localReaderName);
 }
