@@ -1,14 +1,22 @@
-# Keyple Java Distributed Remote API
+# Keyple Distributed Remote Java API
 
 ## Overview
 
-The **Keyple Distributed Remote API** Java library contains the core Keyple interfaces for development of Keyple distributed remote plugins.
+The **Keyple Distributed Remote** Java API contains the core Keyple interfaces for development of Keyple distributed remote plugins.
 
 This library **should not be imported explicitly** by the main application.
 
 ## User Guide & Download Information
 
 The full documentation, including download information is available in the **Documentation** section of the official Keyple website [keyple.org](https://keyple.org)
+
+## Javadoc
+
+The javadoc is available online: [eclipse.github.io/keyple-distributed-remote-java-api/](https://eclipse.github.io/keyple-distributed-remote-java-api/)
+
+## Examples
+
+Examples of implementation are available in the following repository: [github.com/eclipse/keyple-java-example](https://github.com/eclipse/keyple-java-example)
 
 ## Build the Code
 
