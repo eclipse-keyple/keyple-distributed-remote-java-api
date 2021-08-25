@@ -14,14 +14,14 @@ package org.eclipse.keyple.core.distributed.remote;
 /**
  * API properties
  *
- * @since 2.0
+ * @since 2.0.0
  */
 public final class DistributedRemoteApiProperties {
 
   /**
    * API version: {@value}
    *
-   * @since 2.0
+   * @since 2.0.0
    */
   public static final String VERSION = "2.0";
 

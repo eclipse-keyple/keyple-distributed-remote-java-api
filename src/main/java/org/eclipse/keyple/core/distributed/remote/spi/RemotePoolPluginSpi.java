@@ -15,7 +15,7 @@ package org.eclipse.keyple.core.distributed.remote.spi;
  * Distributed remote pool plugin extension able to communicate with a distributed local service
  * extension.
  *
- * @since 2.0
+ * @since 2.0.0
  */
 public interface RemotePoolPluginSpi extends AbstractRemotePluginSpi {
 
@@ -25,7 +25,7 @@ public interface RemotePoolPluginSpi extends AbstractRemotePluginSpi {
    * @param remoteReaderName The remote name of the associated local reader.
    * @param localReaderName The original name of the associated local reader.
    * @return A new instance.
-   * @since 2.0
+   * @since 2.0.0
    */
   RemoteReaderSpi createRemoteReader(String remoteReaderName, String localReaderName);
 }

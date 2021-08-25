@@ -15,7 +15,7 @@ package org.eclipse.keyple.core.distributed.remote.spi;
  * Distributed remote reader extension able to communicate with a distributed local service
  * extension.
  *
- * @since 2.0
+ * @since 2.0.0
  */
 public interface RemoteReaderSpi {
 
@@ -23,7 +23,7 @@ public interface RemoteReaderSpi {
    * Gets the name of the distributed remote reader extension.
    *
    * @return A not empty string.
-   * @since 2.0
+   * @since 2.0.0
    */
   String getName();
 
@@ -34,7 +34,7 @@ public interface RemoteReaderSpi {
    * @param jsonData A JSON string containing the data to transmit.
    * @return A JSON string containing the response received from the distributed local service. It
    *     can be empty if the command returns nothing.
-   * @since 2.0
+   * @since 2.0.0
    */
   String executeRemotely(String jsonData);
 }

@@ -15,7 +15,7 @@ package org.eclipse.keyple.core.distributed.remote.spi;
  * Abstract API extended by all types of distributed remote plugin extensions able to communicate
  * with a distributed local service extension.
  *
- * @since 2.0
+ * @since 2.0.0
  */
 public interface AbstractRemotePluginSpi {
 
@@ -23,7 +23,7 @@ public interface AbstractRemotePluginSpi {
    * Gets the name of the distributed remote plugin extension.
    *
    * @return A not empty string.
-   * @since 2.0
+   * @since 2.0.0
    */
   String getName();
 
@@ -33,14 +33,14 @@ public interface AbstractRemotePluginSpi {
    * @param jsonData A JSON string containing the data to transmit.
    * @return A JSON string containing the response received from the distributed local service. It
    *     can be empty if the command returns nothing.
-   * @since 2.0
+   * @since 2.0.0
    */
   String executeRemotely(String jsonData);
 
   /**
    * Invoked when unregistering the plugin.
    *
-   * @since 2.0
+   * @since 2.0.0
    */
   void onUnregister();
 }

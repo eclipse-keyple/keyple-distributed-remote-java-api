@@ -17,7 +17,7 @@ import org.eclipse.keyple.core.distributed.remote.spi.RemoteReaderSpi;
  * API associated to a {@link
  * org.eclipse.keyple.core.distributed.remote.spi.ObservableRemotePluginSpi}.
  *
- * @since 2.0
+ * @since 2.0.0
  */
 public interface ObservableRemotePluginApi {
 
@@ -28,7 +28,7 @@ public interface ObservableRemotePluginApi {
    *
    * @param remoteReaderSpi The remote reader to use.
    * @throws IllegalArgumentException If the provided reader is null.
-   * @since 2.0
+   * @since 2.0.0
    */
   void addRemoteReader(RemoteReaderSpi remoteReaderSpi);
 
@@ -37,7 +37,7 @@ public interface ObservableRemotePluginApi {
    *
    * @param remoteReaderName The name of the remote reader.
    * @throws IllegalArgumentException If reader name is null or empty.
-   * @since 2.0
+   * @since 2.0.0
    */
   void removeRemoteReader(String remoteReaderName);
 
@@ -47,7 +47,7 @@ public interface ObservableRemotePluginApi {
    *
    * @param jsonData A JSON string containing the plugin event.
    * @throws IllegalArgumentException If the JSON data is null, empty or malformed.
-   * @since 2.0
+   * @since 2.0.0
    */
   void onPluginEvent(String jsonData);
 }

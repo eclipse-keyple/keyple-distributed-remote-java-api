@@ -15,7 +15,7 @@ package org.eclipse.keyple.core.distributed.remote.spi;
  * Distributed remote observable reader extension able to communicate with a distributed local
  * service extension.
  *
- * @since 2.0
+ * @since 2.0.0
  */
 public interface ObservableRemoteReaderSpi extends RemoteReaderSpi {
 
@@ -23,7 +23,7 @@ public interface ObservableRemoteReaderSpi extends RemoteReaderSpi {
    * Invoked when the associated distributed local service <b>starts</b> the observation of a
    * specific observable local reader.
    *
-   * @since 2.0
+   * @since 2.0.0
    */
   void onStartObservation();
 
@@ -31,7 +31,7 @@ public interface ObservableRemoteReaderSpi extends RemoteReaderSpi {
    * Invoked when the associated distributed local service <b>stops</b> the observation of a
    * specific observable local reader.
    *
-   * @since 2.0
+   * @since 2.0.0
    */
   void onStopObservation();
 }

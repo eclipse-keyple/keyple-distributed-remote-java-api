@@ -17,7 +17,7 @@ import org.eclipse.keyple.core.distributed.remote.RemotePluginApi;
  * Distributed remote plugin extension able to communicate with a distributed local service
  * extension.
  *
- * @since 2.0
+ * @since 2.0.0
  */
 public interface RemotePluginSpi extends AbstractRemotePluginSpi {
 
@@ -25,7 +25,7 @@ public interface RemotePluginSpi extends AbstractRemotePluginSpi {
    * Connects the associated Keyple Core {@link RemotePluginApi} API.
    *
    * @param remotePluginApi The API to connect.
-   * @since 2.0
+   * @since 2.0.0
    */
   void connect(RemotePluginApi remotePluginApi);
 
@@ -35,7 +35,7 @@ public interface RemotePluginSpi extends AbstractRemotePluginSpi {
    * @param remoteReaderName The remote name of the associated local reader.
    * @param localReaderName The original name of the associated local reader.
    * @return A new instance.
-   * @since 2.0
+   * @since 2.0.0
    */
   RemoteReaderSpi createRemoteReader(String remoteReaderName, String localReaderName);
 
@@ -47,7 +47,7 @@ public interface RemotePluginSpi extends AbstractRemotePluginSpi {
    * @param localReaderName The original name of the associated local observable reader.
    * @return A new instance.
    * @throws IllegalStateException If the reader observation strategy is not configured.
-   * @since 2.0
+   * @since 2.0.0
    */
   ObservableRemoteReaderSpi createObservableRemoteReader(
       String remoteReaderName, String localReaderName);

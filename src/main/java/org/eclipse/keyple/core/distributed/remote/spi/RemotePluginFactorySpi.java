@@ -14,7 +14,7 @@ package org.eclipse.keyple.core.distributed.remote.spi;
 /**
  * Factory of {@link RemotePluginSpi}.
  *
- * @since 2.0
+ * @since 2.0.0
  */
 public interface RemotePluginFactorySpi {
 
@@ -22,7 +22,7 @@ public interface RemotePluginFactorySpi {
    * Gets the distributed remote's API version used at compile time.
    *
    * @return A not empty string.
-   * @since 2.0
+   * @since 2.0.0
    */
   String getDistributedRemoteApiVersion();
 
@@ -30,7 +30,7 @@ public interface RemotePluginFactorySpi {
    * Gets the common's API version used at compile time.
    *
    * @return A not empty string.
-   * @since 2.0
+   * @since 2.0.0
    */
   String getCommonApiVersion();
 
@@ -38,7 +38,7 @@ public interface RemotePluginFactorySpi {
    * Retrieves the name of the distributed remote plugin that will be instantiated by this factory.
    *
    * @return A not empty string.
-   * @since 2.0
+   * @since 2.0.0
    */
   String getRemotePluginName();
 
@@ -46,7 +46,7 @@ public interface RemotePluginFactorySpi {
    * Retrieves an instance of a distributed remote plugin SPI (can be a singleton or not).
    *
    * @return A not null reference.
-   * @since 2.0
+   * @since 2.0.0
    */
   AbstractRemotePluginSpi getRemotePlugin();
 }

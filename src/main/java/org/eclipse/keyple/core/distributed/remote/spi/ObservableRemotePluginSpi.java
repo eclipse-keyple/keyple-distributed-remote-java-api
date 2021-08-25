@@ -17,7 +17,7 @@ import org.eclipse.keyple.core.distributed.remote.ObservableRemotePluginApi;
  * Distributed observable remote plugin extension able to communicate with a distributed local
  * service extension.
  *
- * @since 2.0
+ * @since 2.0.0
  */
 public interface ObservableRemotePluginSpi extends RemotePluginSpi {
 
@@ -25,7 +25,7 @@ public interface ObservableRemotePluginSpi extends RemotePluginSpi {
    * Connects the associated Keyple Core {@link ObservableRemotePluginApi} API.
    *
    * @param observableRemotePluginApi The API to connect.
-   * @since 2.0
+   * @since 2.0.0
    */
   void connect(ObservableRemotePluginApi observableRemotePluginApi);
 
@@ -33,7 +33,7 @@ public interface ObservableRemotePluginSpi extends RemotePluginSpi {
    * Invoked when the associated distributed local service <b>starts</b> the observation of all
    * observable local plugins.
    *
-   * @since 2.0
+   * @since 2.0.0
    */
   void onStartObservation();
 
@@ -41,7 +41,7 @@ public interface ObservableRemotePluginSpi extends RemotePluginSpi {
    * Invoked when the associated distributed local service <b>stops</b> the observation of all
    * observable local plugins.
    *
-   * @since 2.0
+   * @since 2.0.0
    */
   void onStopObservation();
 }

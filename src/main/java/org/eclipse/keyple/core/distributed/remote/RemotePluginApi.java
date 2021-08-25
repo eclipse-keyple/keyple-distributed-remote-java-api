@@ -14,7 +14,7 @@ package org.eclipse.keyple.core.distributed.remote;
 /**
  * API associated to a {@link org.eclipse.keyple.core.distributed.remote.spi.RemotePluginSpi}.
  *
- * @since 2.0
+ * @since 2.0.0
  */
 public interface RemotePluginApi {
 
@@ -25,7 +25,7 @@ public interface RemotePluginApi {
    * @param jsonData A JSON string containing the reader event.
    * @throws IllegalArgumentException If the JSON data is null, empty or malformed.
    * @throws IllegalStateException If there is no associated observable remote reader registered.
-   * @since 2.0
+   * @since 2.0.0
    */
   void onReaderEvent(String jsonData);
 }
