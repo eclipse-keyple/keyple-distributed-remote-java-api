@@ -1,0 +1,137 @@
+@startuml
+title
+    Keyple 2.0 - keyple-distributed-remote-java-api - 2.0 (23/08/2021)
+end title
+
+' == THEME ==
+
+'Couleurs issues de : https://htmlcolorcodes.com/fr/tableau-de-couleur/tableau-de-couleur-design-plat/
+!define C_GREY1 F8F9F9
+!define C_GREY2 F2F3F4
+!define C_GREY3 E5E7E9
+!define C_GREY4 D7DBDD
+!define C_GREY5 CACFD2
+!define C_GREY6 BDC3C7
+!define C_LINK 3498DB
+!define C_USE 27AE60
+
+skinparam Shadowing false
+skinparam ClassFontStyle italic
+skinparam ClassBorderColor #D4AC0D
+skinparam stereotypeABorderColor #A9DCDF
+skinparam stereotypeIBorderColor #B4A7E5
+skinparam stereotypeCBorderColor #ADD1B2
+skinparam stereotypeEBorderColor #EB93DF
+' Red
+skinparam ClassBackgroundColor<<red>> #FDEDEC
+skinparam ClassBorderColor<<red>> #E74C3C
+hide <<red>> stereotype
+' Purple
+skinparam ClassBackgroundColor<<purple>> #F4ECF7
+skinparam ClassBorderColor<<purple>> #8E44AD
+hide <<purple>> stereotype
+' blue
+skinparam ClassBackgroundColor<<blue>> #EBF5FB
+skinparam ClassBorderColor<<blue>> #3498DB
+hide <<blue>> stereotype
+' Green
+skinparam ClassBackgroundColor<<green>> #E9F7EF
+skinparam ClassBorderColor<<green>> #27AE60
+hide <<green>> stereotype
+' Grey
+skinparam ClassBackgroundColor<<grey>> #EAECEE
+skinparam ClassBorderColor<<grey>> #2C3E50
+hide <<grey>> stereotype
+
+' == CONTENT ==
+
+legend top
+    __Colors legend__ :
+    * __Keyple Distributed Solution Configuration modes__ :
+    ** <back:lightGreen>**Reader Client Side**</back> (Remote Plugin on **Server**)
+    ** <back:plum>**Reader Server Side**</back> (Remote Plugin on **Client** with **Plugin** or **ObservablePlugin**)
+    ** <back:lightBlue>**Reader Server Side**</back> (Remote Plugin on **Client** with **PoolPlugin**)
+end legend
+
+package "org.eclipse.keyple.core.distributed.remote" as api {
+    +class "**final** DistributedRemoteApiProperties" as ApiProperties {
+        +{static} **final** String VERSION
+    }
+    +interface RemotePluginApi {
+        .. <back:plum>**Reader Server Side**</back> ..
+        +void onReaderEvent (String jsonData)
+    }
+    +interface ObservableRemotePluginApi {
+        .. <back:lightGreen>**Reader Client Side**</back> ..
+        +void addRemoteReader (RemoteReaderSpi remoteReaderSpi)
+        +void removeRemoteReader (Sting remoteReaderName)
+        .. <back:plum>**Reader Server Side**</back> ..
+        +void onPluginEvent (String jsonData)
+    }
+    package spi {
+        ' Factories
+        +interface RemotePluginFactorySpi {
+            +String getDistributedRemoteApiVersion ()
+            +String getCommonApiVersion ()
+            +String getRemotePluginName ()
+            +AbstractRemotePluginSpi getRemotePlugin ()
+        }
+        ' Plugins
+        +interface AbstractRemotePluginSpi {
+            +String getName ()
+            +String executeRemotely (String jsonData)
+            +void onUnregister ()
+        }
+        +interface RemotePluginSpi extends AbstractRemotePluginSpi {
+            .. <back:plum>**Reader Server Side**</back> ..
+            +void connect (RemotePluginApi remotePluginApi)
+            +RemoteReaderSpi createRemoteReader (String remoteReaderName, String localReaderName)
+            +ObservableRemoteReaderSpi createObservableRemoteReader (String remoteReaderName, String localReaderName)
+        }
+        +interface ObservableRemotePluginSpi extends RemotePluginSpi {
+            .. <back:lightGreen>**Reader Client Side**</back> & <back:plum>**Reader Server Side**</back> ..
+            +void connect (ObservableRemotePluginApi observableRemotePluginApi)
+            .. <back:plum>**Reader Server Side**</back> ..
+            +void onStartObservation ()
+            +void onStopObservation ()
+        }
+        +interface RemotePoolPluginSpi extends AbstractRemotePluginSpi {
+            .. <back:lightBlue>**Pool Reader Server Side**</back> ..
+            +RemoteReaderSpi createRemoteReader (String remoteReaderName, String localReaderName)
+        }
+        ' Readers
+        +interface RemoteReaderSpi {
+            +String getName ()
+            +String executeRemotely (String jsonData)
+        }
+        +interface ObservableRemoteReaderSpi extends RemoteReaderSpi {
+            .. <back:plum>**Reader Server Side**</back> ..
+            +void onStartObservation ()
+            +void onStopObservation ()
+        }
+    }
+}
+
+' Associations
+
+RemotePluginFactorySpi .left.> ApiProperties #C_LINK : provide\nAPI version <
+RemotePluginFactorySpi ..> AbstractRemotePluginSpi #C_LINK : provide >
+
+RemotePluginSpi .left.> RemotePluginApi #C_USE : use >
+RemotePluginSpi ..> RemoteReaderSpi #C_LINK : create >
+RemotePluginSpi ..> ObservableRemoteReaderSpi #C_LINK : create >
+
+ObservableRemotePluginSpi .left.> ObservableRemotePluginApi #C_USE : use >
+
+RemotePoolPluginSpi ..> RemoteReaderSpi #C_LINK : create >
+
+' == LAYOUT ==
+
+ObservableRemotePluginSpi -[hidden]- RemoteReaderSpi
+
+' == STYLE ==
+
+package api #C_GREY1 {}
+package spi #C_GREY2 {}
+
+@enduml
