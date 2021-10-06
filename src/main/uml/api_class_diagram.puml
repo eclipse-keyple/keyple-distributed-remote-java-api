@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple 2.0 - keyple-distributed-remote-java-api - 2.0 (23/08/2021)
+    Keyple - keyple-distributed-remote-java-api - 2.0.+ (23/08/2021)
 end title
 
 ' == THEME ==
@@ -47,7 +47,7 @@ hide <<grey>> stereotype
 
 legend top
     __Colors legend__ :
-    * __Keyple Distributed Solution Configuration modes__ :
+    * __Keyple Distributed solution usage modes__ :
     ** <back:lightGreen>**Reader Client Side**</back> (Remote Plugin on **Server**)
     ** <back:plum>**Reader Server Side**</back> (Remote Plugin on **Client** with **Plugin** or **ObservablePlugin**)
     ** <back:lightBlue>**Reader Server Side**</back> (Remote Plugin on **Client** with **PoolPlugin**)
