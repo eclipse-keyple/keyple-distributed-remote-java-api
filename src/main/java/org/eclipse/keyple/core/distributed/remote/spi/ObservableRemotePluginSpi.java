@@ -11,6 +11,7 @@
  ************************************************************************************** */
 package org.eclipse.keyple.core.distributed.remote.spi;
 
+import java.util.concurrent.ExecutorService;
 import org.eclipse.keyple.core.distributed.remote.ObservableRemotePluginApi;
 
 /**
@@ -28,6 +29,14 @@ public interface ObservableRemotePluginSpi extends RemotePluginSpi {
    * @since 2.0.0
    */
   void connect(ObservableRemotePluginApi observableRemotePluginApi);
+
+  /**
+   * Returns the custom service to be used to asynchronously notify remote reader connection events.
+   *
+   * @return Null if there is no custom executor service provided.
+   * @since 2.1.0
+   */
+  ExecutorService getExecutorService();
 
   /**
    * Invoked when the associated distributed local service <b>starts</b> the observation of all
