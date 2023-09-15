@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple - keyple-distributed-remote-java-api - 2.1.+ (2023-02-17)
+    Keyple - keyple-distributed-remote-java-api - 3.0.+ (2023-09-13)
 end title
 
 ' == THEME ==
@@ -69,8 +69,8 @@ package "org.eclipse.keyple.core.distributed.remote" as api {
     }
     +interface ObservableRemotePluginApi {
         .. <back:lightGreen>**Reader Client Side**</back> ..
-        +void addRemoteReader (RemoteReaderSpi remoteReaderSpi)
-        +void removeRemoteReader (Sting remoteReaderName)
+        +void addRemoteReader (RemoteReaderSpi remoteReaderSpi, <color:blue>int clientCoreApiLevel</color>)
+        +void removeRemoteReader (String remoteReaderName)
         .. <back:plum>**Reader Server Side**</back> ..
         +void onPluginEvent (String jsonData)
     }
@@ -85,6 +85,7 @@ package "org.eclipse.keyple.core.distributed.remote" as api {
         ' Plugins
         +interface AbstractRemotePluginSpi {
             +String getName ()
+            +<color:blue>int exchangeApiLevel (int coreApiLevel)
             +String executeRemotely (String jsonData)
             +void onUnregister ()
         }
@@ -98,7 +99,7 @@ package "org.eclipse.keyple.core.distributed.remote" as api {
             .. <back:lightGreen>**Reader Client Side**</back> & <back:plum>**Reader Server Side**</back> ..
             +void connect (ObservableRemotePluginApi observableRemotePluginApi)
             .. <back:lightGreen>**Reader Client Side**</back> ..
-            +<color:green> ExecutorService getExecutorService ()
+            +ExecutorService getExecutorService ()
             .. <back:plum>**Reader Server Side**</back> ..
             +void onStartObservation ()
             +void onStopObservation ()
@@ -140,6 +141,6 @@ ObservableRemotePluginSpi -[hidden]- RemoteReaderSpi
 ' == STYLE ==
 
 package api #C_GREY1 {}
-package spi #C_GREY2 {}
+package api.spi #C_GREY2 {}
 
 @enduml
