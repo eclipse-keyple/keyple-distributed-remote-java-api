@@ -26,11 +26,17 @@ public interface ObservableRemotePluginApi {
    * org.eclipse.keyple.core.distributed.remote.spi.ObservableRemoteReaderSpi}, registers it and
    * notifies all plugin's observers for the connection of the new reader.
    *
+   * <p>The {@code clientCoreApiLevel} parameter will enable the Distributed layer to transmit the
+   * client's Core layer API level to the server's Core layer when a reader creation request is
+   * made.
+   *
    * @param remoteReaderSpi The remote reader to use.
+   * @param clientCoreApiLevel The JSON API level of the associated client Core layer or -1 if
+   *     unknown at this step.
    * @throws IllegalArgumentException If the provided reader is null.
    * @since 2.0.0
    */
-  void addRemoteReader(RemoteReaderSpi remoteReaderSpi);
+  void addRemoteReader(RemoteReaderSpi remoteReaderSpi, int clientCoreApiLevel);
 
   /**
    * Tries to remove the remote reader having the provided name.

@@ -28,6 +28,15 @@ public interface AbstractRemotePluginSpi {
   String getName();
 
   /**
+   * Exchanges the JSON API levels between the Keyple Core and Distributed layers.
+   *
+   * @param coreApiLevel The JSON API level of the Core layer.
+   * @return The JSON API level of the Distributed layer.
+   * @since 3.0.0
+   */
+  int exchangeApiLevel(int coreApiLevel);
+
+  /**
    * Forwards the provided JSON data to the associated distributed local service.
    *
    * @param jsonData A JSON string containing the data to transmit.

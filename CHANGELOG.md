@@ -6,7 +6,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 ### Added
+- Added a new method `int exchangeApiLevel(int coreApiLevel)` to the `AbstractRemotePluginSpi` interface to enable Core 
+  and Distributed layers to exchange their JSON API levels.
 - Added project status badges on `README.md` file.
+### Changed
+- Updated the signature of the method `addRemoteReader` in the `ObservableRemotePluginApi` interface.
+  The original signature was `void addRemoteReader(RemoteReaderSpi remoteReaderSpi)`, 
+  and it has now been modified to `void addRemoteReader(RemoteReaderSpi remoteReaderSpi, int clientCoreApiLevel)`.
+  The new `clientCoreApiLevel` parameter will enable the Distributed layer to transmit the client's Core layer API level
+  to the server's Core layer when a reader creation request is made.
 ### Fixed
 - CI: code coverage report when releasing.
 
