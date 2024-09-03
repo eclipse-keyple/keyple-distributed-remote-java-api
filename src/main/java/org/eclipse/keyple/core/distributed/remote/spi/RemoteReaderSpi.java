@@ -20,12 +20,20 @@ package org.eclipse.keyple.core.distributed.remote.spi;
 public interface RemoteReaderSpi {
 
   /**
-   * Gets the name of the distributed remote reader extension.
+   * Returns the name of the distributed remote reader extension.
    *
    * @return A not empty string.
    * @since 2.0.0
    */
   String getName();
+
+  /**
+   * Indicates if the local reader is contactless or not.
+   *
+   * @return Null if the information is unknown.
+   * @since 3.1.0
+   */
+  Boolean isContactless();
 
   /**
    * Forwards the provided JSON data to the associated distributed local service in order to perform
