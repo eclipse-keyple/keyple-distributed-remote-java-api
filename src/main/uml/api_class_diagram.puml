@@ -1,6 +1,6 @@
 @startuml
 title
-    Keyple - keyple-distributed-remote-java-api - 3.0.+ (2023-09-13)
+    Keyple - keyple-distributed-remote-java-api - 3.1.+ (2024-09-02)
 end title
 
 ' == THEME ==
@@ -60,7 +60,7 @@ legend top
 end legend
 
 package "org.eclipse.keyple.core.distributed.remote" as api {
-    +class "**final** DistributedRemoteApiProperties" as ApiProperties {
+    +class "**final** DistributedRemoteApiProperties" as ApiProperties <<green>> {
         +{static} **final** String VERSION
     }
     +interface RemotePluginApi {
@@ -69,33 +69,33 @@ package "org.eclipse.keyple.core.distributed.remote" as api {
     }
     +interface ObservableRemotePluginApi {
         .. <back:lightGreen>**Reader Client Side**</back> ..
-        +void addRemoteReader (RemoteReaderSpi remoteReaderSpi, <color:blue>int clientCoreApiLevel</color>)
+        +void addRemoteReader (RemoteReaderSpi remoteReaderSpi, int clientCoreApiLevel)
         +void removeRemoteReader (String remoteReaderName)
         .. <back:plum>**Reader Server Side**</back> ..
         +void onPluginEvent (String jsonData)
     }
     package spi {
         ' Factories
-        +interface RemotePluginFactorySpi {
+        +interface RemotePluginFactorySpi <<red>> {
             +String getDistributedRemoteApiVersion ()
             +String getCommonApiVersion ()
             +String getRemotePluginName ()
             +AbstractRemotePluginSpi getRemotePlugin ()
         }
         ' Plugins
-        +interface AbstractRemotePluginSpi {
+        +interface AbstractRemotePluginSpi <<red>> {
             +String getName ()
-            +<color:blue>int exchangeApiLevel (int coreApiLevel)
+            +int exchangeApiLevel (int coreApiLevel)
             +String executeRemotely (String jsonData)
             +void onUnregister ()
         }
-        +interface RemotePluginSpi extends AbstractRemotePluginSpi {
+        +interface RemotePluginSpi <<red>> extends AbstractRemotePluginSpi {
             .. <back:plum>**Reader Server Side**</back> ..
             +void connect (RemotePluginApi remotePluginApi)
             +RemoteReaderSpi createRemoteReader (String remoteReaderName, String localReaderName)
             +ObservableRemoteReaderSpi createObservableRemoteReader (String remoteReaderName, String localReaderName)
         }
-        +interface ObservableRemotePluginSpi extends RemotePluginSpi {
+        +interface ObservableRemotePluginSpi <<red>> extends RemotePluginSpi {
             .. <back:lightGreen>**Reader Client Side**</back> & <back:plum>**Reader Server Side**</back> ..
             +void connect (ObservableRemotePluginApi observableRemotePluginApi)
             .. <back:lightGreen>**Reader Client Side**</back> ..
@@ -104,16 +104,18 @@ package "org.eclipse.keyple.core.distributed.remote" as api {
             +void onStartObservation ()
             +void onStopObservation ()
         }
-        +interface RemotePoolPluginSpi extends AbstractRemotePluginSpi {
+        +interface RemotePoolPluginSpi <<red>> extends AbstractRemotePluginSpi {
             .. <back:lightBlue>**Pool Reader Server Side**</back> ..
             +RemoteReaderSpi createRemoteReader (String remoteReaderName, String localReaderName)
         }
         ' Readers
-        +interface RemoteReaderSpi {
+        +interface RemoteReaderSpi <<red>> {
             +String getName ()
             +String executeRemotely (String jsonData)
+            .. <back:lightGreen>**Reader Client Side**</back> ..
+            +<color:blue>Boolean isLocalReaderContactless ()
         }
-        +interface ObservableRemoteReaderSpi extends RemoteReaderSpi {
+        +interface ObservableRemoteReaderSpi <<red>> extends RemoteReaderSpi {
             .. <back:plum>**Reader Server Side**</back> ..
             +void onStartObservation ()
             +void onStopObservation ()
