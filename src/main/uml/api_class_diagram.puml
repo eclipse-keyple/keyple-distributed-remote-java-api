@@ -113,7 +113,7 @@ package "org.eclipse.keyple.core.distributed.remote" as api {
             +String getName ()
             +String executeRemotely (String jsonData)
             .. <back:lightGreen>**Reader Client Side**</back> ..
-            +<color:blue>Boolean isLocalReaderContactless ()
+            +<color:blue>Boolean isContactless ()
         }
         +interface ObservableRemoteReaderSpi <<red>> extends RemoteReaderSpi {
             .. <back:plum>**Reader Server Side**</back> ..

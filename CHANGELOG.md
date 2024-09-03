@@ -6,7 +6,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 ### Added
-- Added a new method `boolean isLocalReaderContactless()` to the `RemoteReaderSpi` interface to enable
+- Added a new method `Boolean isContactless()` to the `RemoteReaderSpi` interface to enable
   the "remote plugin server" to identify the local reader's characteristics.
   This optimization reduces the number of network exchanges.
 

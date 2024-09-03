@@ -33,7 +33,7 @@ public interface RemoteReaderSpi {
    * @return Null if the information is unknown.
    * @since 3.1.0
    */
-  Boolean isLocalReaderContactless();
+  Boolean isContactless();
 
   /**
    * Forwards the provided JSON data to the associated distributed local service in order to perform
