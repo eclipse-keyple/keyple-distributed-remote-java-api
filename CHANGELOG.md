@@ -5,10 +5,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+## [3.1.0] - 2024-09-06
 ### Added
-- Added a new method `Boolean isContactless()` to the `RemoteReaderSpi` interface to enable
-  the "remote plugin server" to identify the local reader's characteristics.
-  This optimization reduces the number of network exchanges.
+- Added a new method `Boolean isContactless()` to the `RemoteReaderSpi` interface.
+  This method enables the main Keyple service to identify as soon as possible whether a remote reader is contactless or
+  not, if this information has been transmitted to the remote lib. This reduces the number of network exchanges.
 
 ## [3.0.1] - 2024-04-12
 ### Changed
@@ -43,7 +45,8 @@ It follows the extraction of Keyple 1.0 components contained in the `eclipse-key
 repositories.
 It also brings many major API changes.
 
-[unreleased]: https://github.com/eclipse-keyple/keyple-distributed-remote-java-api/compare/3.0.1...HEAD
+[unreleased]: https://github.com/eclipse-keyple/keyple-distributed-remote-java-api/compare/3.1.0...HEAD
+[3.1.0]: https://github.com/eclipse-keyple/keyple-distributed-remote-java-api/compare/3.0.1...3.1.0
 [3.0.1]: https://github.com/eclipse-keyple/keyple-distributed-remote-java-api/compare/3.0.0...3.0.1
 [3.0.0]: https://github.com/eclipse-keyple/keyple-distributed-remote-java-api/compare/2.1.0...3.0.0
 [2.1.0]: https://github.com/eclipse-keyple/keyple-distributed-remote-java-api/compare/2.0.0...2.1.0
