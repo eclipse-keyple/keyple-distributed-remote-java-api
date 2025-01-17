@@ -17,7 +17,7 @@ The full documentation, including the **user guide**, **download information** a
 
 ## API documentation
 
-API documentation & class diagram is available online: [eclipse-keyple.github.io/keyple-distributed-remote-java-api](https://eclipse-keyple.github.io/keyple-distributed-remote-java-api)
+API documentation & class diagram is available online: [docs.keyple.org/keyple-distributed-remote-java-api](https://docs.keyple.org/keyple-distributed-remote-java-api)
 
 ## Examples
 
