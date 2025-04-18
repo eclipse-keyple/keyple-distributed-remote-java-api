@@ -5,6 +5,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Changed
+- Switched license from `EPL 2.0` to `MIT` (issue [#11]).
+  The license switch has been authorized through a restructuring review supervised by the « Eclipse Management
+  Organization » team https://gitlab.eclipse.org/eclipsefdn/emo-team/emo/-/issues/908#note_3394156.
 
 ## [3.1.0] - 2024-09-06
 ### Added
@@ -52,6 +56,7 @@ It also brings many major API changes.
 [2.1.0]: https://github.com/eclipse-keyple/keyple-distributed-remote-java-api/compare/2.0.0...2.1.0
 [2.0.0]: https://github.com/eclipse-keyple/keyple-distributed-remote-java-api/releases/tag/2.0.0
 
+[#11]: https://github.com/eclipse-keyple/keyple-distributed-remote-java-api/issues/11
 [#3]: https://github.com/eclipse-keyple/keyple-distributed-remote-java-api/issues/3
 
 [eclipse-keyple/keyple#6]: https://github.com/eclipse-keyple/keyple/issues/6
